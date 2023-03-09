@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${url}
+    username: ${username}
+    password: ${password}
+
+  jpa:
+    properties:
+      hibernate:
+        default_schema: test
