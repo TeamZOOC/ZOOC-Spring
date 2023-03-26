@@ -1,21 +1,21 @@
 server:
-  port: 8082
+    port: 8082
 
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: ${url}
-    username: ${username}
-    password: ${password}
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    open-in-view: false
-    generate-ddl: true
-    properties:
-      hibernate:
-        default_schema: dev
-        format_sql: true
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: ${url}
+        username: ${username}
+        password: ${password}
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        open-in-view: false
+        generate-ddl: true
+        properties:
+            hibernate:
+                default_schema: dev
+                format_sql: true
