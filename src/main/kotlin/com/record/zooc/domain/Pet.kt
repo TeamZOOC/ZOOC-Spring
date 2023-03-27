@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinTable
+import jakarta.persistence.ManyToMany
 import jakarta.persistence.ManyToOne
 import java.time.LocalDateTime
 
@@ -29,6 +31,10 @@ class Pet(
     @ManyToOne
     @JoinColumn(name = "family_id")
     val family: Family,
+
+    @ManyToMany
+    @JoinTable(name = "pet_memory")
+    val memories: List<Memory>,
 
     @Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),

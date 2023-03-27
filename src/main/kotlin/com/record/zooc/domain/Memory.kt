@@ -9,6 +9,8 @@ import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
 import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinTable
+import jakarta.persistence.ManyToMany
 import jakarta.persistence.ManyToOne
 import java.time.LocalDateTime
 
@@ -31,9 +33,9 @@ class Memory(
     @JoinColumn(name = "user_id")
     val users: Users,
 
-    // @ManyToMany
-    // @JoinColumn(name = "pet_id")
-    // val pet: Pet? = null
+    @ManyToMany
+    @JoinTable(name = "pet_memory")
+    val pets: List<Pet>,
 
     @ManyToOne
     @JoinColumn(name = "family_id")
