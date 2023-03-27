@@ -11,13 +11,7 @@ import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 
-@Entity
-@Table(
-    name = "fcmtoken",
-    indexes = [
-        Index(name = "fcmtoken_users_id_index", columnList = "user_id"),
-    ],
-)
+@Entity(name = "fcmtoken")
 class FcmToken(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

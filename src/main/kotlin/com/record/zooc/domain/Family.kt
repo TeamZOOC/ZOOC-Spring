@@ -21,7 +21,4 @@ class Family(
 
     @Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),
-
-    @Column(name = "updated_at")
-    var updatedAt: LocalDateTime = LocalDateTime.now()
 )

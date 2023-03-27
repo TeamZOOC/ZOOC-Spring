@@ -5,20 +5,11 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.Index
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
 import java.time.LocalDateTime
 
-@Entity
-@Table(
-    name = "pets",
-    indexes = [
-        Index(name = "pet_users_id_index", columnList = "user_id"),
-        Index(columnList = "user_id", name = "pet_users_id_index"),
-    ],
-)
+@Entity(name = "pet")
 class Pet(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +34,5 @@ class Pet(
     var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "updated_at")
-    var updatedAt: LocalDateTime = LocalDateTime.now()
+    var updatedAt: LocalDateTime = LocalDateTime.now(),
 )

@@ -9,30 +9,27 @@ import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
 import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToMany
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
 import java.time.LocalDateTime
 
-@Entity
-@Table(name = "memory")
+@Entity(name = "memory")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "DTYPE")
-class Memory {
+@DiscriminatorColumn(name = "memory_type")
+class Memory(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    var id: Int = 0
+    var id: Int,
 
     @Column(name = "image")
-    var image: String? = null
+    var image: String,
 
     @Column(name = "content")
-    var content: String? = null
+    var content: String,
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    val users: Users? = null
+    val users: Users,
 
     // @ManyToMany
     // @JoinColumn(name = "pet_id")
@@ -40,11 +37,11 @@ class Memory {
 
     @ManyToOne
     @JoinColumn(name = "family_id")
-    val family: Family? = null
+    val family: Family,
 
     @Column(name = "created_at")
-    var createdAt: LocalDateTime = LocalDateTime.now()
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "updated_at")
-    var updatedAt: LocalDateTime = LocalDateTime.now()
-}
+    var updatedAt: LocalDateTime = LocalDateTime.now(),
+)

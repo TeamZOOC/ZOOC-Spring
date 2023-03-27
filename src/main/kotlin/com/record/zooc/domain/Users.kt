@@ -9,13 +9,7 @@ import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
 import java.time.LocalDateTime
 
-@Entity
-@Table(
-    name = "user",
-    uniqueConstraints = [
-        UniqueConstraint(name = "user_id_uindex", columnNames = ["id"]),
-    ],
-)
+@Entity(name = "users")
 class Users(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

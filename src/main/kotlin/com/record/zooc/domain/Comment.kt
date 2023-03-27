@@ -8,28 +8,16 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
 import java.time.LocalDateTime
 
-@Entity
-@Table(name = "comment")
+@Entity(name = "comment")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "DTYPE")
+@DiscriminatorColumn(name = "comment_Type")
 class Comment(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     var id: Int = 0,
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    val users: Users,
-
-    @ManyToOne
-    @JoinColumn(name = "memory_id")
-    val memory: Memory,
 
     @Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),

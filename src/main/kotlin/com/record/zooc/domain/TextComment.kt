@@ -4,9 +4,9 @@ import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
 
-@Entity
-@DiscriminatorValue("TEXTCOMMENT")
-class TextComment : Comment() {
+@Entity(name = "text_comment")
+@DiscriminatorValue("TextComment")
+class TextComment(
     @Column(name = "content", nullable = false)
-    var content: String? = null
-}
+    var content: String? = null,
+) : Comment()
