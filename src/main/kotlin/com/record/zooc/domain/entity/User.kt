@@ -12,12 +12,12 @@ import jakarta.persistence.Table
 @Table(name = "user")
 class User(
     role: String,
-    userEmail: String? = null,
-    profileImage: String? = null,
     everRecorded: Boolean = false,
     refreshToken: String,
     snsToken: String,
     snsType: String,
+    userEmail: String? = null,
+    profileImage: String? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,10 +57,7 @@ class User(
         role: String? = null,
         profileImage: String? = null,
     ) {
-
-        if(role != null) this.role = role
-
-        //role이 null이 아니면 this에 role 저장
+        // role이 null이 아니면 this에 role 저장
         role?.let { this.role = it }
         profileImage?.let { this.profileImage = it }
     }
@@ -68,5 +65,4 @@ class User(
     fun userRecordedForTheFirstTime() {
         this.everRecorded = true
     }
-
 }

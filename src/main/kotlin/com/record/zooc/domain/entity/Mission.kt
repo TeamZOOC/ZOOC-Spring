@@ -1,3 +1,5 @@
+package com.record.zooc.domain.entity
+
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -6,17 +8,16 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "fcmtoken")
-class FcmToken(
-    userId: Long,
-    fcmToken: String,
+@Table(name = "mission")
+class Mission(
+    missionContent: String
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = 0
         protected set
 
-    @Column(name = "fcm_token")
-    var fcmToken: String = fcmToken
+    @Column(name = "mission_content")
+    var missionContent: String = missionContent
         protected set
 }

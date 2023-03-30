@@ -2,5 +2,7 @@ import jakarta.persistence.DiscriminatorValue
 
 @DiscriminatorValue("Text")
 class Textcomment(
-    content: String
-) : Comment()
+    content: String,
+    writerId: Int,
+    recordId: Int,
+) : Comment(content, writerId, recordId)

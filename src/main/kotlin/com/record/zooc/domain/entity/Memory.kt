@@ -7,19 +7,26 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
+import jakarta.persistence.Table
 
 @DiscriminatorColumn(name = "mission_type")
 @Entity
+@Table(name = "memory")
 @Inheritance(strategy = InheritanceType.JOINED)
 class Memory(
-
-    @Column
-    var image: String,
-
-    @Column
-    var content: String,
+    image: String,
+    content: String,
 ) : BaseTimeEntityModified() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0; // ㅜㅜ 이거 어카지...
+    var id: Long = 0
+        protected set
+
+    @Column
+    var image: String = image
+        protected set
+
+    @Column
+    var content: String = content
+        protected set
 }
