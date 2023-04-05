@@ -1,4 +1,4 @@
-import com.record.zooc.domain.entity.BaseTimeEntityCreated
+import com.record.zooc.domain.entity.time.CreatedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -13,7 +13,7 @@ class Alarm(
     writerId: Long,
     familyId: Long,
     recordId: Long,
-) : BaseTimeEntityCreated() {
+) : CreatedTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = 0

@@ -1,4 +1,4 @@
-import com.record.zooc.domain.entity.BaseTimeEntityModified
+import com.record.zooc.domain.entity.time.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorColumn
 import jakarta.persistence.Entity
@@ -16,7 +16,7 @@ import jakarta.persistence.Table
 class Memory(
     image: String,
     content: String,
-) : BaseTimeEntityModified() {
+) : ModifiedTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0

@@ -1,4 +1,4 @@
-import com.record.zooc.domain.entity.BaseTimeEntityModified
+import com.record.zooc.domain.entity.time.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorColumn
 import jakarta.persistence.Entity
@@ -18,7 +18,7 @@ class Comment(
     writerId: Long,
     recordId: Int,
 
-) : BaseTimeEntityModified() {
+) : ModifiedTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = 0
