@@ -1,4 +1,4 @@
-package com.record.zooc.domain.entity
+package com.record.zooc.domain.entity.pushAlarm
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -8,16 +8,17 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "mission")
-class Mission(
-    missionContent: String
+@Table(name = "fcmtoken")
+class FcmToken(
+    userId: Long,
+    fcmToken: String,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = 0
         protected set
 
-    @Column(name = "mission_content")
-    var missionContent: String = missionContent
+    @Column(name = "fcm_token")
+    var fcmToken: String = fcmToken
         protected set
 }

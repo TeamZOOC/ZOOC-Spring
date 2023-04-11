@@ -1,7 +1,6 @@
 package com.record.zooc.domain.entity.time
 
 import com.fasterxml.jackson.annotation.JsonFormat
-import com.record.zooc.domain.entity.time.CreatedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass

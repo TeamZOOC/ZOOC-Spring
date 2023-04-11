@@ -3,6 +3,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
 @Entity
@@ -22,4 +23,9 @@ class Pet(
     @Column(name = "profile_image")
     var profileImage: String? = profileImage
         protected set
+
+    @OneToMany(mappedBy = "pet")
+    var relationsWithMemory: ArrayList<MemoryPetRelation> = ArrayList()
+        protected set
+
 }

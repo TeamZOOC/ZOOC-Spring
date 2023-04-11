@@ -1,3 +1,6 @@
+package com.record.zooc.domain.entity.memory
+
+import MemoryPetRelation
 import com.record.zooc.domain.entity.time.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorColumn
@@ -7,17 +10,16 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
-@DiscriminatorColumn(name = "comment_type")
+@DiscriminatorColumn(name = "mission_type")
 @Entity
-@Table(name = "comment")
+@Table(name = "memory")
 @Inheritance(strategy = InheritanceType.JOINED)
-class Comment(
+class Memory(
+    image: String,
     content: String,
-    writerId: Long,
-    recordId: Int,
-
 ) : ModifiedTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,20 +27,14 @@ class Comment(
         protected set
 
     @Column
-    var content: String = content
+    var image: String = image
         protected set
 
     @Column
-    var writer: Long = writerId
+    var content: String = content
         protected set
 
-    @Column(name = "record_id")
-    var recordId: Int = recordId
+    @OneToMany(mappedBy = "memory")
+    var relationsWithPet: ArrayList<MemoryPetRelation> = ArrayList()
         protected set
-
-    fun updateContent(
-        content: String,
-    ) {
-        this.content = content
-    }
 }

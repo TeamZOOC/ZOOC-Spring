@@ -1,3 +1,5 @@
+package com.record.zooc.domain.entity.comment
+
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorValue
 

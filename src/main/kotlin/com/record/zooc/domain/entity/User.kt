@@ -3,6 +3,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
 // @Builder가 필요한 상황 찾아보기
@@ -51,6 +52,10 @@ class User(
 
     @Column(name = "sns_type")
     var snsType: String = snsType
+        protected set
+
+    @OneToMany(mappedBy = "user")
+    var relationsWithFamily: ArrayList<UserFamilyRelation> = ArrayList()
         protected set
 
     fun updateUserRoleAndProfile(
