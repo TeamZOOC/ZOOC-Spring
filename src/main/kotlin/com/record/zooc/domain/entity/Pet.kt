@@ -1,3 +1,6 @@
+package com.record.zooc.domain.entity
+
+import com.record.zooc.domain.entity.relation.MemoryPetRelation
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -27,5 +30,4 @@ class Pet(
     @OneToMany(mappedBy = "pet")
     var relationsWithMemory: ArrayList<MemoryPetRelation> = ArrayList()
         protected set
-
 }

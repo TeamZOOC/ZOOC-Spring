@@ -1,3 +1,6 @@
+package com.record.zooc.domain.entity.relation
+
+import com.record.zooc.domain.entity.Pet
 import com.record.zooc.domain.entity.memory.Memory
 import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
@@ -53,4 +56,3 @@ class MemoryPetRelation(memory: Memory, pet: Pet) {
     var pet: Pet = pet
         protected set
 }
-

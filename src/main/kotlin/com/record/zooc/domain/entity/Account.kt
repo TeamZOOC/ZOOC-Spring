@@ -1,3 +1,6 @@
+package com.record.zooc.domain.entity
+
+import com.record.zooc.domain.entity.relation.UserFamilyRelation
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -10,8 +13,8 @@ import jakarta.persistence.Table
 // reflection 개념 찾아보기
 
 @Entity
-@Table(name = "user")
-class User(
+@Table(name = "account")
+class Account(
     role: String,
     everRecorded: Boolean = false,
     refreshToken: String,
@@ -54,7 +57,7 @@ class User(
     var snsType: String = snsType
         protected set
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "account")
     var relationsWithFamily: ArrayList<UserFamilyRelation> = ArrayList()
         protected set
 

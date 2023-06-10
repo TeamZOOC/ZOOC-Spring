@@ -1,7 +1,7 @@
 package com.record.zooc.domain.entity.memory
 
-import MemoryPetRelation
-import com.record.zooc.domain.entity.time.ModifiedTimeEntity
+import com.record.zooc.domain.entity.relation.MemoryPetRelation
+import com.record.zooc.domain.entity.base.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorColumn
 import jakarta.persistence.Entity

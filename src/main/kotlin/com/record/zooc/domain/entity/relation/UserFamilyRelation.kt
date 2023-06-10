@@ -1,10 +1,14 @@
+package com.record.zooc.domain.entity.relation
+
+import com.record.zooc.domain.entity.Family
+import com.record.zooc.domain.entity.Account
 import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
 import jakarta.persistence.EmbeddedId
 import jakarta.persistence.Entity
-import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.MapsId
 import jakarta.persistence.Table
 import java.io.Serializable
 
@@ -34,19 +38,19 @@ class UserFamilyRelationId(
 
 @Entity
 @Table(name = "user_family")
-class UserFamilyRelation(user: User, family: Family) {
+class UserFamilyRelation(account: Account, family: Family) {
 
     @EmbeddedId
-    var userFamilyId = UserFamilyRelationId(user.id, family.id)
+    var userFamilyId = UserFamilyRelationId(account.id, family.id)
         protected set
 
-    @Id
+    @MapsId("user_id")
     @ManyToOne
     @JoinColumn(name = "user_id")
-    var user: User = user
+    var account: Account = account
         protected set
 
-    @Id
+    @MapsId("family_id")
     @ManyToOne
     @JoinColumn(name = "family_id")
     var family: Family = family

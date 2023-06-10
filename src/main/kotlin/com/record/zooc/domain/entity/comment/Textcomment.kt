@@ -1,10 +1,11 @@
 package com.record.zooc.domain.entity.comment
 
+import com.record.zooc.domain.entity.Account
 import jakarta.persistence.DiscriminatorValue
 
 @DiscriminatorValue("Text")
 class Textcomment(
     content: String,
-    writerId: Long,
+    account: Account,
     recordId: Int,
-) : Comment(content, writerId, recordId)
+) : Comment(content, account, recordId)

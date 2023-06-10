@@ -1,6 +1,6 @@
 package com.record.zooc.domain.entity.pushAlarm
 
-import com.record.zooc.domain.entity.time.CreatedTimeEntity
+import com.record.zooc.domain.entity.base.CreatedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue

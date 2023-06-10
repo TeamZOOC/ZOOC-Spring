@@ -1,6 +1,7 @@
 package com.record.zooc.domain.entity.comment
 
-import com.record.zooc.domain.entity.time.ModifiedTimeEntity
+import com.record.zooc.domain.entity.Account
+import com.record.zooc.domain.entity.base.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.DiscriminatorColumn
 import jakarta.persistence.Entity
@@ -9,6 +10,8 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Inheritance
 import jakarta.persistence.InheritanceType
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
 @DiscriminatorColumn(name = "comment_type")
@@ -17,8 +20,8 @@ import jakarta.persistence.Table
 @Inheritance(strategy = InheritanceType.JOINED)
 class Comment(
     content: String,
-    writerId: Long,
-    recordId: Int,
+    account: Account,
+    memoryId: Int,
 
 ) : ModifiedTimeEntity() {
     @Id
@@ -30,12 +33,13 @@ class Comment(
     var content: String = content
         protected set
 
-    @Column
-    var writer: Long = writerId
+    @OneToOne
+    @JoinColumn(name = "writer_id")
+    var writer: Account = account
         protected set
 
-    @Column(name = "record_id")
-    var recordId: Int = recordId
+    @Column
+    var memoryId: Int = memoryId
         protected set
 
     fun updateContent(

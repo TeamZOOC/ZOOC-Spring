@@ -1,4 +1,7 @@
-import com.record.zooc.domain.entity.time.ModifiedTimeEntity
+package com.record.zooc.domain.entity
+
+import com.record.zooc.domain.entity.relation.UserFamilyRelation
+import com.record.zooc.domain.entity.base.ModifiedTimeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
