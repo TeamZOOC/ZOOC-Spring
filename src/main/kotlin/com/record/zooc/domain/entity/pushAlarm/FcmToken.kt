@@ -10,8 +10,8 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "fcmtoken")
 class FcmToken(
-    userId: Long,
     fcmToken: String,
+    setting: Boolean,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +20,9 @@ class FcmToken(
 
     @Column(name = "fcm_token")
     var fcmToken: String = fcmToken
+        protected set
+
+    @Column
+    var setting: Boolean = setting
         protected set
 }
